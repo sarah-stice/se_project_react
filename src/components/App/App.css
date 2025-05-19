@@ -1,3 +1,13 @@
+:root {
+  --title-font-size: 20px;
+  --title-line-height: 24px;
+  --project-font: "Cabinet Grotesk", sans-serif, serif;
+  --body-font-size: 16px;
+  --body-line-height: 20px;
+  --font-weight-regular: 500;
+  --font-weight-bold: 700;
+}
+
 .page {
   background-color: #f3f3f3;
 }

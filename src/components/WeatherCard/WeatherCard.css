@@ -4,6 +4,8 @@
   height: 80px;
   overflow: hidden;
   border-radius: 12px;
+  font-family: var(--project-font);
+  color: rgba(255, 255, 255, 1);
 }
 
 .weather-card__temp {
