@@ -1,4 +1,4 @@
-import closeIcon from "../../assets/close-icon.svg";
+import closeIcon from "../../assets/close-grey.png";
 import "./ModalWithForm.css";
 
 function ModalWithForm({ children, buttonText, activeModal, onClose, title }) {
