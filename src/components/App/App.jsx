@@ -2,6 +2,7 @@ import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
@@ -34,7 +35,6 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
-        debugger;
       })
       .catch(console.error);
   }, []);
@@ -45,6 +45,7 @@ function App() {
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
+      <Footer />
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"

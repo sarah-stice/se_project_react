@@ -1,5 +1,6 @@
 .cards {
   font-family: var(--project-font);
+  margin-bottom: 85px;
 }
 
 .cards__text {

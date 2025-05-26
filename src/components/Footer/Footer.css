@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--project-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--body-line-height);
+  margin: 0 42px 24px 40px;
+}
