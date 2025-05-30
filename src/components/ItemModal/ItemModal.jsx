@@ -16,7 +16,11 @@ function ItemModal({ activeModal, onClose, selectedCard }) {
             className="modal__close-icon"
           />
         </button>
-        <img src={selectedCard.link} alt="" className="modal__image" />
+        <img
+          src={selectedCard.link}
+          alt="Image of selected garment"
+          className="modal__image"
+        />
         <div className="modal__footer">
           <h2 className="modal__caption">{selectedCard.name}</h2>
           <p className="modal__weather">Weather: {selectedCard.weather}</p>
