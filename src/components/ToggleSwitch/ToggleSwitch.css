@@ -1,0 +1,77 @@
+.toggle {
+  margin: 0 20px 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.toggle__label {
+  width: 56px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid rgba(126, 126, 126, 1);
+  border-radius: 20px;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+  position: relative;
+  z-index: 0;
+}
+
+.toggle__label:hover {
+  cursor: pointer;
+  border-color: rgba(0, 0, 0, 1);
+}
+
+.toggle__input:not(:checked):hover ~ .toggle__circle {
+  left: 0px;
+  /* transition: all 0.1s; */
+}
+
+.toggle__input {
+  opacity: 0;
+}
+
+.toggle__input:checked ~ .toggle__circle {
+  left: 26px;
+  /* transition: all 0.7s; */
+}
+
+.toggle__input:not(:checked) ~ .toggle__circle {
+  left: -2px;
+  /* transition: all 0.7s; */
+}
+
+.toggle__circle {
+  background-color: black;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  border-radius: 50%;
+  left: -2px;
+  top: -2px;
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+.toggle__text {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  line-height: 100%;
+}
+.toggle__text_color_white {
+  color: white;
+}
+
+.toggle__text_F {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  z-index: 2;
+}
+
+.toggle__text_C {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  z-index: 2;
+}
