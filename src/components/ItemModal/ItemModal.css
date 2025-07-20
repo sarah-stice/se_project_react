@@ -1,16 +1,16 @@
 .modal__content_type_item {
   width: 498px;
   height: 610px;
-  padding: 0px;
   border: none;
   border-radius: 16px;
+  padding: 0;
 }
 
 .modal__image {
   height: 498px;
   width: 100%;
-  padding: 0;
-  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .modal__close-button_type_item {

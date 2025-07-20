@@ -26,14 +26,19 @@
   line-height: var(--body-line-height);
   background-color: rgba(255, 255, 255, 1);
   position: relative;
-  padding: 28px 28px 36px;
   margin: 0;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  max-width: 498px;
+  max-height: 610px;
+  width: 100%;
+}
+
+.modal__content_type_form {
   max-width: 496px;
   height: 436px;
-  box-sizing: border-box;
-  width: 100%;
+  padding: 28px 28px 36px;
 }
 
 .modal__title {
