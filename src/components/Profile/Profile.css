@@ -1,0 +1,7 @@
+.profile {
+  display: flex;
+  font-family: var(--project-font);
+  font-size: var(--title-font-size);
+  line-height: var(--title-line-height);
+  font-weight: var(--font-weight-bold);
+}

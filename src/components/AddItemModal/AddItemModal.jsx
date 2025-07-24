@@ -19,7 +19,6 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("dumbfuck juice bitch sauce");
     onAddItemModalSubmit({ name, imageUrl, weather });
     setName("");
     setImageUrl("");

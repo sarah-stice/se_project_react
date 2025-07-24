@@ -4,10 +4,12 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemparatureUnitContext from "../../contexts/CurrentTemparatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
 import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
@@ -43,9 +45,9 @@ function App() {
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems([
+    setClothingItems((previousItems) => [
       { name, link: imageUrl, weather, _id: newId },
-      ...clothingItems,
+      ...previousItems,
     ]);
     closeActiveModal();
   };
@@ -66,11 +68,29 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            clothingItems={clothingItems}
-          />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                "profile"
+                // <Profile
+                //   weatherData={weatherData}
+                //   clothingItems={clothingItems}
+                // />
+              }
+            />
+          </Routes>
         </div>
         <Footer />
         <AddItemModal
