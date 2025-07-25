@@ -83,11 +83,10 @@ function App() {
             <Route
               path="/profile"
               element={
-                "profile"
-                // <Profile
-                //   weatherData={weatherData}
-                //   clothingItems={clothingItems}
-                // />
+                <Profile
+                  weatherData={weatherData}
+                  clothingItems={clothingItems}
+                />
               }
             />
           </Routes>
