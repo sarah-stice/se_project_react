@@ -4,5 +4,6 @@
   font-size: var(--title-font-size);
   line-height: var(--title-line-height);
   font-weight: var(--font-weight-bold);
-  width: 152px;
+  gap: 100px;
+  width: 100%;
 }

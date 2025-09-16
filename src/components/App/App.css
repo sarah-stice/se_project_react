@@ -13,13 +13,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 0 40px;
 }
 
 .page__content {
-  max-width: 1360px;
   margin: 0 auto;
-  padding: 0 20px;
   flex-grow: 1;
+  width: 100%;
 }
 
 html,

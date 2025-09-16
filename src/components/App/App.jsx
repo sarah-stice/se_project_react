@@ -86,6 +86,7 @@ function App() {
                 <Profile
                   weatherData={weatherData}
                   clothingItems={clothingItems}
+                  onCardClick={handleCardClick}
                 />
               }
             />
