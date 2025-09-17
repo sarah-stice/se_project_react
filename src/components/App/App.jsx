@@ -11,7 +11,7 @@ import CurrentTemparatureUnitContext from "../../contexts/CurrentTemparatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 // import { defaultClothingItems } from "../../utils/constants";
-import { getItems } from "../../utils/api";
+import { addItems, getItems } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -46,10 +46,13 @@ function App() {
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems((previousItems) => [
-      { name, imageUrl: imageUrl, weather, _id: newId },
-      ...previousItems,
-    ]);
+    addItems({ name, imageUrl, weather }).then(
+      setClothingItems((previousItems) => [
+        { name, imageUrl: imageUrl, weather, _id: newId },
+        ...previousItems,
+      ])
+    );
+
     closeActiveModal();
   };
 

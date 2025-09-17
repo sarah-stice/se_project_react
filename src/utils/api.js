@@ -6,4 +6,18 @@ function getItems() {
   });
 }
 
-export { getItems };
+export { getItems, addItems };
+
+function addItems({ name, imageUrl, weather }) {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      imageUrl,
+      weather,
+    }),
+  }).catch((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+}
