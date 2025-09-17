@@ -32,3 +32,8 @@
   align-items: center;
   gap: 12px;
 }
+
+.header__link-profile {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}

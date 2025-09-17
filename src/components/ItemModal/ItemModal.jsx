@@ -17,7 +17,7 @@ function ItemModal({ activeModal, onClose, selectedCard }) {
           />
         </button>
         <img
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt="Image of selected garment"
           className="modal__image"
         />

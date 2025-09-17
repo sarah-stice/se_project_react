@@ -10,7 +10,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemparatureUnitContext from "../../contexts/CurrentTemparatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { defaultClothingItems } from "../../utils/constants";
+// import { defaultClothingItems } from "../../utils/constants";
+import { getItems } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -24,7 +25,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [checked, setChecked] = useState(false);
   const [currentTemparatureUnit, setCurrentTemparatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleChange = () => {
     setCurrentTemparatureUnit(currentTemparatureUnit === "F" ? "C" : "F");
@@ -46,7 +47,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     setClothingItems((previousItems) => [
-      { name, link: imageUrl, weather, _id: newId },
+      { name, imageUrl: imageUrl, weather, _id: newId },
       ...previousItems,
     ]);
     closeActiveModal();
@@ -57,6 +58,14 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
