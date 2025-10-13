@@ -6,10 +6,8 @@ function getItems() {
   });
 }
 
-export { getItems, addItems };
-
-function addItems({ name, imageUrl, weather }) {
-  return fetch(`${baseUrl}/items`, {
+async function addItems({ name, imageUrl, weather }) {
+  const res = await fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -17,7 +15,26 @@ function addItems({ name, imageUrl, weather }) {
       imageUrl,
       weather,
     }),
-  }).catch((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error(`Error: ${res.status}. Could not add item.`);
+  }
 }
+
+async function deleteItems(id) {
+  const res = await fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error(`Error: ${res.status}. Could not delete item.`);
+  }
+}
+
+export { getItems, addItems, deleteItems };

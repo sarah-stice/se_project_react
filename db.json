@@ -125,6 +125,18 @@
       "imageUrl": "https://blob.apliiq.com/sitestorage/resized-products/5125001_4204_577_880.jpg?v=1",
       "weather": "warm",
       "_id": 20
+    },
+    {
+      "name": "tshirt red",
+      "imageUrl": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/U88491s2.jpg?im=Resize,width=750",
+      "weather": "warm",
+      "_id": 21
+    },
+    {
+      "name": "tshirt black",
+      "imageUrl": "https://media.istockphoto.com/id/483960103/photo/blank-black-t-shirt-front-with-clipping-path.jpg?s=612x612&w=0&k=20&c=d8qlXILMYhugXGw6zX7Jer2SLPrLPORfsDsfRDWc-50=",
+      "weather": "",
+      "_id": 22
     }
   ]
 }

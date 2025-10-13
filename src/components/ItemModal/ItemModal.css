@@ -32,13 +32,28 @@
   margin: 0;
 }
 
+.modal__button_type_delete {
+  color: rgba(255, 77, 0, 1);
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+  padding: 0 32px 0 0;
+}
+
 .modal__footer {
   font-family: var(--project-font);
   font-weight: var(--font-weight-bold);
   font-size: var(--title-font-size);
   line-height: var(--title-line-height);
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0 32px 32px;
+}
+
+.modal__footer_wrapper {
+  display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 20px 0 32px 32px;
 }

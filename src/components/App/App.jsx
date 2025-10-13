@@ -10,8 +10,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemparatureUnitContext from "../../contexts/CurrentTemparatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-// import { defaultClothingItems } from "../../utils/constants";
-import { addItems, getItems } from "../../utils/api";
+import { addItems, deleteItems, getItems } from "../../utils/api";
+import DeleteModal from "../DeleteModal/DeleteItemModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -44,15 +44,34 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    addItems({ name, imageUrl, weather }).then(
-      setClothingItems((previousItems) => [
-        { name, imageUrl: imageUrl, weather, _id: newId },
-        ...previousItems,
-      ])
-    );
+  const handleOpenDelete = () => {
+    setActiveModal("delete-item");
+  };
 
+  const handleAddItemModalSubmit = async ({ name, imageUrl, weather }) => {
+    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+    try {
+      const newItem = await addItems({ name, imageUrl, weather });
+      setClothingItems((previousItems) => [newItem, ...previousItems]);
+    } catch (error) {
+      console.error(`Error: Could not add item`);
+      alert(`Could not add item.`);
+    }
+    closeActiveModal();
+  };
+
+  const handleCardDelete = async (id) => {
+    try {
+      const removedItem = await deleteItems(id);
+      setClothingItems((item) => {
+        return clothingItems.filter((item) => {
+          return id != item._id;
+        });
+      });
+    } catch (error) {
+      console.error(`Error: could not delete item`);
+      alert(`Unable to delete item.`);
+    }
     closeActiveModal();
   };
 
@@ -110,10 +129,17 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onAddItemModalSubmit={handleAddItemModalSubmit}
         ></AddItemModal>
+        <DeleteModal
+          onClose={closeActiveModal}
+          selectedCard={selectedCard}
+          handleCardDelete={handleCardDelete}
+          isOpen={activeModal === "delete-item"}
+        ></DeleteModal>
         <ItemModal
           activeModal={activeModal}
           selectedCard={selectedCard}
           onClose={closeActiveModal}
+          handleOpenDelete={handleOpenDelete}
         />
       </div>
     </CurrentTemparatureUnitContext.Provider>
